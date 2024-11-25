@@ -1,4 +1,6 @@
 package steps;
 
-public class LoginSteps {
+
+public class LoginSteps{
+
 }
