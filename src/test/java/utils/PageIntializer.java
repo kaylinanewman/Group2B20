@@ -1,23 +1,19 @@
 package utils;
-
-
-import pages.AddEmployeePage;
-import pages.DashboardPage;
-import pages.EmployeeSearchPage;
 import pages.LoginPage;
+import pages.MembershipPage;
 
 public class PageIntializer {
 
     public static LoginPage loginPage;
-    public static AddEmployeePage addEmployeePage;
-    public static EmployeeSearchPage employeeSearchPage;
-    public static DashboardPage dashboardPage;
+    public static MembershipPage MembershipPage;
+
 
     public static void initializePageObjects(){
         loginPage = new LoginPage();
-        addEmployeePage = new AddEmployeePage();
-        employeeSearchPage = new EmployeeSearchPage();
-        dashboardPage = new DashboardPage();
+        MembershipPage = new MembershipPage();
+
+
+
     }
 
 }
