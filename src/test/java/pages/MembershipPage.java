@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.CommonMethods;
 
-public class LoginPage extends CommonMethods {
+public class MembershipPage extends CommonMethods {
 
     //object repositories
 
@@ -21,7 +21,7 @@ public class LoginPage extends CommonMethods {
     @FindBy(id="spanMessage")
     public WebElement errorMessage;
 
-    public LoginPage(){
+    public MembershipPage(){
         PageFactory.initElements(driver, this);
     }
 
