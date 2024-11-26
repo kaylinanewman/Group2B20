@@ -1,6 +1,7 @@
 package utils;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,15 +23,15 @@ public class CommonMethods extends PageInitializer {
     public static WebDriver driver;
 
     public void openBrowserAndLaunchApplication() {
-        switch (ConfigReader.read("browser")){
+        switch (ConfigReader.read("browser")) {
 
             case "Chrome":
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
-                driver=new ChromeDriver();
+                driver = new ChromeDriver();
                 break;
             case "FireFox":
-                driver=new FirefoxDriver();
+                driver = new FirefoxDriver();
                 break;
             case "Edge":
                 driver = new EdgeDriver();
@@ -49,54 +50,57 @@ public class CommonMethods extends PageInitializer {
     }
 
     public void closeBrowser() {
-        if(driver!= null) {
+        if (driver != null) {
             driver.quit();
         }
     }
 
-    public void sendText(String text, WebElement element){
+    public void sendText(String text, WebElement element) {
         element.clear();
         element.sendKeys(text);
     }
 
-    public void selectFromDropDown(WebElement dropDown, String visibleText){
-        Select sel =new Select(dropDown);
+    public void selectFromDropDown(WebElement dropDown, String visibleText) {
+        Select sel = new Select(dropDown);
         sel.selectByVisibleText(visibleText);
     }
-    public void selectFromDropDown(String value, WebElement dropDown ){
-        Select sel =new Select(dropDown);
+
+    public void selectFromDropDown(String value, WebElement dropDown) {
+        Select sel = new Select(dropDown);
         sel.selectByValue(value);
     }
-    public void selectFromDropDown( WebElement dropDown,int index ){
-        Select sel =new Select(dropDown);
+
+    public void selectFromDropDown(WebElement dropDown, int index) {
+        Select sel = new Select(dropDown);
         sel.selectByIndex(index);
     }
 
-    public WebDriverWait getwait(){
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT));
-        return  wait;
+    public WebDriverWait getwait() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT));
+        return wait;
     }
 
-    public void waitForElementToBeClickAble(WebElement element){
+    public void waitForElementToBeClickAble(WebElement element) {
         getwait().until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void click(WebElement element){
+    public void click(WebElement element) {
         waitForElementToBeClickAble(element);
         element.click();
     }
 
-    public JavascriptExecutor getJSExecutor(){
+
+    public JavascriptExecutor getJSExecutor() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         return js;
     }
 
-    public void jsClick(WebElement element){
+    public void jsClick(WebElement element) {
         getJSExecutor().executeScript("arguments[0].click();", element);
     }
 
 
-    public byte[] takeScreenshot(String fileName){
+    public byte[] takeScreenshot(String fileName) {
         //it accepts array of byte in cucumber for the screenshot
         TakesScreenshot ts = (TakesScreenshot) driver;
         byte[] picByte = ts.getScreenshotAs(OutputType.BYTES);
@@ -105,15 +109,15 @@ public class CommonMethods extends PageInitializer {
         try {
             FileUtils.copyFile(sourceFile,
                     new File(Constants.SCREENSHOT_FILEPATH +
-                            fileName+" "+
-                            getTimeStamp("yyyy-MM-dd-HH-mm-ss")+".png"));
+                            fileName + " " +
+                            getTimeStamp("yyyy-MM-dd-HH-mm-ss") + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         return picByte;
     }
 
-    public String getTimeStamp(String pattern){
+    public String getTimeStamp(String pattern) {
         //this method will return the timestamp which we will add in ss method
         Date date = new Date();
         //12-01-1992-21-32-34
@@ -122,5 +126,38 @@ public class CommonMethods extends PageInitializer {
         return sdf.format(date);
     }
 
+    public void sendKeysWithVerification(WebElement element, String value) {
+        if (value != null && !value.trim().isEmpty()) {
+            try {
+                // Wait and ensure element is interactable
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+                WebElement clickableElement = wait.until(ExpectedConditions.elementToBeClickable(element));
 
+                // Clear existing text
+                clickableElement.clear();
+
+                // Send keys
+                clickableElement.sendKeys(value);
+
+                // Verify value was set
+                String actualValue = clickableElement.getAttribute("value");
+                Assert.assertEquals("Value not set correctly for element", value, actualValue);
+
+            } catch (Exception e) {
+                // Fallback to JavaScript if standard method fails
+                try {
+                    JavascriptExecutor js = (JavascriptExecutor) driver;
+                    js.executeScript("arguments[0].value = arguments[1];", element, value);
+
+                    // Verify JS-set value
+                    String jsSetValue = (String) js.executeScript("return arguments[0].value", element);
+                    Assert.assertEquals("JS value not set correctly", value, jsSetValue);
+                } catch (Exception jsError) {
+                    throw new RuntimeException("Failed to send keys to element: " + jsError.getMessage());
+                }
+            }
+        }
+
+
+    }
 }
