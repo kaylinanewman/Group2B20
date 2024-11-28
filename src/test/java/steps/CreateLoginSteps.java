@@ -1,6 +1,7 @@
 package steps;
 
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,25 +13,36 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.LoginPage;
 import utils.CommonMethods;
+import utils.ConfigReader;
 
 import java.time.Duration;
+import java.util.Random;
 
 import static utils.CommonMethods.driver;
 
+
+
 public class CreateLoginSteps extends CommonMethods {
+
+    String usernameValue=generateRandomUsername();
     @When("user enters admin username and admin password")
     public void user_enters_admin_username_and_admin_password() {
         WebElement usernameField = driver.findElement(By.id("txtUsername"));
         usernameField.sendKeys("admin");
+        //sendText(ConfigReader.read("userName"), loginPage.usernameField);
+
         WebElement passwordField = driver.findElement(By.id("txtPassword"));
         passwordField.sendKeys("Hum@nhrm123");
+       // sendText(ConfigReader.read("password"), loginPage.passwordField);
     }
 
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
         WebElement loginButton = driver.findElement(By.id("btnLogin"));
         loginButton.click();
+       // click(loginPage.loginButton);
     }
 
     @Then("user is navigated to dashbaord page")
@@ -246,7 +258,7 @@ public class CreateLoginSteps extends CommonMethods {
     @When("I enters employee username and password")
     public void i_enters_employee_username_and_password() {
         WebElement usernameField = driver.findElement(By.id("txtUsername"));
-        usernameField.sendKeys("Sidra05");
+        usernameField.sendKeys(usernameValue);
         WebElement passwordField = driver.findElement(By.id("txtPassword"));
         passwordField.sendKeys("SidraBilal$1");
     }
@@ -281,18 +293,26 @@ public class CreateLoginSteps extends CommonMethods {
         Assert.assertEquals("Meryl03",addEmployeePage.searchResult.getText());
     }
 
+    public static String generateRandomUsername() {
+        // Characters to choose from
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        int length = 8; // Length of the username
+        StringBuilder username = new StringBuilder();
+        Random random = new Random();
 
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(alphabet.length());
+            username.append(alphabet.charAt(index));
+        }
+
+        return username.toString();
+    }
+
+
+    @And("I enter in the Username field")
+    public void iEnterInTheUsernameField() {
+        WebElement username = driver.findElement(By.cssSelector("input[id='user_name']"));
+        username.sendKeys(usernameValue);
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

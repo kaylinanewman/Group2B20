@@ -2,6 +2,6 @@ package pages;
 
 
 
-public class CreateLoginPage{
+public class CreateLoginPage {
 
 }

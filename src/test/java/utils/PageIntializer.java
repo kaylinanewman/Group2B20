@@ -4,7 +4,6 @@ package utils;
 import pages.AddEmployeePage;
 import pages.CreateLoginPage;
 import pages.DashboardPage;
-
 import pages.LoginPage;
 
 //this class initialize the page objects and their web elements
