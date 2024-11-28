@@ -22,28 +22,6 @@ import java.time.Duration;
 
 
 public class EditContactDetailsSteps extends CommonMethods {
-    public  void selectFromDropdown(WebElement dropdown, String visibleText) {
-        if (isStandardSelect(dropdown)) {
-
-            Select select = new Select(dropdown);
-            select.selectByVisibleText(visibleText);
-        } else {
-
-            click(dropdown);
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement option = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//div[contains(@class, 'dropdown') or contains(@class, 'select')]//li[text()='" + visibleText + "']")));
-            click(option);
-        }
-    }
-
-     boolean isStandardSelect(WebElement element) {
-        return element.getTagName().equalsIgnoreCase("select");
-    }
-
-
-
-
 
     @When("user clicks on id field")
     public void user_clicks_on_id_field() {

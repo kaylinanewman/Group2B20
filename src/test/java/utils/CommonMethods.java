@@ -1,10 +1,8 @@
 package utils;
 
 import org.apache.commons.io.FileUtils;
-<<<<<<< HEAD
 import org.junit.Assert;
-=======
->>>>>>> main
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,10 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-<<<<<<< HEAD
 import org.openqa.selenium.support.ui.Select;
-=======
->>>>>>> main
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -29,26 +24,17 @@ public class CommonMethods extends PageInitializer {
     public static WebDriver driver;
 
     public void openBrowserAndLaunchApplication() {
-<<<<<<< HEAD
-        switch (ConfigReader.read("browser")) {
-=======
+
         switch (ConfigReader.read("browser")){
->>>>>>> main
 
             case "Chrome":
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
-<<<<<<< HEAD
                 driver = new ChromeDriver();
                 break;
             case "FireFox":
                 driver = new FirefoxDriver();
-=======
                 driver=new ChromeDriver();
-                break;
-            case "FireFox":
-                driver=new FirefoxDriver();
->>>>>>> main
                 break;
             case "Edge":
                 driver = new EdgeDriver();
@@ -62,37 +48,18 @@ public class CommonMethods extends PageInitializer {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(ConfigReader.read("url"));
-<<<<<<< HEAD
-        //this ,method will call all the objects
-=======
->>>>>>> main
         initializePageObjects();
     }
 
     public void closeBrowser() {
-<<<<<<< HEAD
-        if (driver != null) {
-=======
         if(driver!= null) {
->>>>>>> main
             driver.quit();
         }
     }
 
-<<<<<<< HEAD
     public void sendText(String text, WebElement element) {
         element.clear();
         element.sendKeys(text);
-    }
-
-    public void selectFromDropDown(WebElement dropDown, String visibleText) {
-        Select sel = new Select(dropDown);
-        sel.selectByVisibleText(visibleText);
-    }
-
-    public void selectFromDropDown(String value, WebElement dropDown) {
-        Select sel = new Select(dropDown);
-        sel.selectByValue(value);
     }
 
     public void selectFromDropDown(WebElement dropDown, int index) {
@@ -110,76 +77,38 @@ public class CommonMethods extends PageInitializer {
     }
 
     public void click(WebElement element) {
-=======
-    public void sendText(String text, WebElement element){
-        element.clear();
-        element.sendKeys(text);
-    }
-    public WebDriverWait getwait(){
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT));
-        return  wait;
-    }
-
-    public void waitForElementToBeClickAble(WebElement element){
-        getwait().until(ExpectedConditions.elementToBeClickable(element));
-    }
-
-    public void click(WebElement element){
->>>>>>> main
         waitForElementToBeClickAble(element);
         element.click();
     }
 
-<<<<<<< HEAD
-
-    public JavascriptExecutor getJSExecutor() {
-=======
     public JavascriptExecutor getJSExecutor(){
->>>>>>> main
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         return js;
     }
 
-<<<<<<< HEAD
     public void jsClick(WebElement element) {
         getJSExecutor().executeScript("arguments[0].click();", element);
     }
 
 
-    public byte[] takeScreenshot(String fileName) {
-        //it accepts array of byte in cucumber for the screenshot
-=======
-    public void jsClick(WebElement element){
-        getJSExecutor().executeScript("arguments[0].click();", element);
-    }
-
     public byte[] takeScreenshot(String fileName){
->>>>>>> main
         TakesScreenshot ts = (TakesScreenshot) driver;
         byte[] picByte = ts.getScreenshotAs(OutputType.BYTES);
         File sourceFile = ts.getScreenshotAs(OutputType.FILE);
-
         try {
             FileUtils.copyFile(sourceFile,
                     new File(Constants.SCREENSHOT_FILEPATH +
-<<<<<<< HEAD
                             fileName + " " +
                             getTimeStamp("yyyy-MM-dd-HH-mm-ss") + ".png"));
-=======
-                            fileName+" "+
-                            getTimeStamp("yyyy-MM-dd-HH-mm-ss")+".png"));
->>>>>>> main
         } catch (IOException e) {
             e.printStackTrace();
         }
         return picByte;
     }
 
-<<<<<<< HEAD
-    public String getTimeStamp(String pattern) {
-=======
     public String getTimeStamp(String pattern){
->>>>>>> main
+
         //this method will return the timestamp which we will add in ss method
         Date date = new Date();
         //12-01-1992-21-32-34
@@ -188,7 +117,6 @@ public class CommonMethods extends PageInitializer {
         return sdf.format(date);
     }
 
-<<<<<<< HEAD
     public void sendKeysWithVerification(WebElement element, String value) {
         if (value != null && !value.trim().isEmpty()) {
             try {
@@ -221,9 +149,26 @@ public class CommonMethods extends PageInitializer {
             }
         }
 
+    }
+    boolean isStandardSelect(WebElement element) {
+        return element.getTagName().equalsIgnoreCase("select");
+    }
 
+    public  void selectFromDropdown(WebElement dropdown, String visibleText) {
+        if (isStandardSelect(dropdown)) {
+
+            Select select = new Select(dropdown);
+            select.selectByVisibleText(visibleText);
+        } else {
+
+            click(dropdown);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement option = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//div[contains(@class, 'dropdown') or contains(@class, 'select')]//li[text()='" + visibleText + "']")));
+            click(option);
+        }
     }
 }
-=======
-}
->>>>>>> main
+
+
+

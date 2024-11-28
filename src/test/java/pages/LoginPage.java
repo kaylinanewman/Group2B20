@@ -7,39 +7,22 @@ import utils.CommonMethods;
 
 public class LoginPage extends CommonMethods {
 
-<<<<<<< HEAD
-    //object repositories
 
-=======
->>>>>>> main
-    @FindBy(id="txtUsername")
+    @FindBy(id = "txtUsername")
     public WebElement usernameField;
 
-    @FindBy(id="txtPassword")
+    @FindBy(id = "txtPassword")
     public WebElement passwordField;
 
-    @FindBy(id="btnLogin")
+    @FindBy(id = "btnLogin")
     public WebElement loginButton;
 
-<<<<<<< HEAD
-    @FindBy(id="spanMessage")
+
+    @FindBy(id = "spanMessage")
     public WebElement errorMessage;
 
-    public LoginPage(){
+    public LoginPage() {
         PageFactory.initElements(driver, this);
     }
 
-
-
-
-
-
 }
-=======
-
-    public LoginPage(){PageFactory.initElements(driver, this);
-    }
-
-
-}
->>>>>>> main
