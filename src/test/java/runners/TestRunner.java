@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-<<<<<<< HEAD
         features = "src/test/resources/features/",
         glue = "steps",
         //when it is true, it generates step def which is missing
@@ -23,16 +22,3 @@ import org.junit.runner.RunWith;
 public class TestRunner {
 
 }
-=======
-        features = "src/test/resources/features",
-        glue = "steps",
-        dryRun = false,
-        tags = "@login",
-        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json","rerun:target/failed.txt"}
-
-)
-
-public class TestRunner {
-
-}
->>>>>>> main
