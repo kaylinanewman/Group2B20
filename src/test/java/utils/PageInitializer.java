@@ -1,11 +1,17 @@
 package utils;
 
+<<<<<<< HEAD
 
 import pages.*;
+=======
+import pages.DashboardPage;
+import pages.LoginPage;
+>>>>>>> main
 
 public class PageInitializer {
 
     public static LoginPage loginPage;
+<<<<<<< HEAD
     public static AddEmployeePage addEmployeePage;
     public static EmployeeSearchPage employeeSearchPage;
     public static DashboardPage dashboardPage;
@@ -20,3 +26,12 @@ public class PageInitializer {
     }
 
 }
+=======
+    public static DashboardPage dashboardPage;
+
+    public static void initializePageObjects(){
+        loginPage = new LoginPage();
+        dashboardPage = new DashboardPage();
+    }
+}
+>>>>>>> main

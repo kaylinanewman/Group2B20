@@ -7,6 +7,7 @@ import utils.CommonMethods;
 
 public class DashboardPage extends CommonMethods {
 
+<<<<<<< HEAD
 
     @FindBy(id="welcome")
     public WebElement welcomeText;
@@ -15,4 +16,13 @@ public class DashboardPage extends CommonMethods {
     public DashboardPage(){
         PageFactory.initElements(driver, this);
     }
+=======
+    @FindBy(id="welcome")
+    public WebElement welcomeText;
+
+    public DashboardPage(){
+        PageFactory.initElements(driver, this);
+    }
+
+>>>>>>> main
 }
