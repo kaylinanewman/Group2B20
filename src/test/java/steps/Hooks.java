@@ -23,7 +23,7 @@ public class Hooks extends CommonMethods {
                 System.out.println("🚀💥🛸 Closing the browser... Hope it had a smooth ride! 🛸💥🚀");
             }
 
-        byte[] pic;
+        /*byte[] pic;
         if(scenario.isFailed()){
             pic = takeScreenshot("failed/"+scenario.getName());
         }else{
@@ -31,6 +31,8 @@ public class Hooks extends CommonMethods {
         }
         scenario.attach(pic,"image/png",scenario.getName());
         closeBrowser();
+
+         */
     }
 
 }
