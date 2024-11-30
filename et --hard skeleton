@@ -1,0 +1,41 @@
+[33mcommit 1c9b28aa8210f86a75b8ef1d4c1659eae5cefadf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: faf6ca7 352903d
+Author: Saif <elsayedmasoud10@gmail.com>
+Date:   Tue Nov 26 16:59:30 2024 -0500
+
+    Merge pull request #3 from SyntaxTechnologies/Elsayed
+    
+    Elsayed
+
+[33mcommit 352903d3b0ce2bf7bcb146f8c5fb2fbf85818ba9[m
+Author: Elsayed Masoud <elsayedmasoud@elsayeds-air.mynetworksettings.com>
+Date:   Mon Nov 25 22:56:18 2024 -0500
+
+    second commit
+
+[33mcommit 490ef82dc6f7f3d2c0da69598729b6a024c3349b[m
+Author: Elsayed Masoud <elsayedmasoud@elsayeds-air.mynetworksettings.com>
+Date:   Mon Nov 25 22:40:25 2024 -0500
+
+    membership details
+
+[33mcommit faf6ca7cfe8431fe978a40bf5de41ce7c0ef6b6c[m
+Merge: 06650a3 f6941fb
+Author: kaylinanewman <kaylinanewman@gmail.com>
+Date:   Fri Nov 22 22:08:28 2024 -0500
+
+    Merge pull request #1 from SyntaxTechnologies/Kaylin
+    
+    skeleton
+
+[33mcommit f6941fbc7bddb8cf9a0eec173bf4706812974422[m
+Author: kaylinanewman <kaylinanewman@gmail.com>
+Date:   Fri Nov 22 22:02:13 2024 -0500
+
+    skeleton
+
+[33mcommit 06650a3f55e10338d1410d91e67c65ba16e2ee19[m
+Author: SyntaxTechnologies <moazzam@syntaxtechs.com>
+Date:   Wed Nov 20 22:02:33 2024 -0500
+
+    base structure

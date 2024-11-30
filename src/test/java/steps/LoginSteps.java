@@ -1,54 +1,65 @@
 package steps;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.LoginPage;
+import org.openqa.selenium.chrome.ChromeDriver;
 import utils.CommonMethods;
 import utils.ConfigReader;
 
 import java.time.Duration;
 
+import static utils.PageInitializer.dashboardPage;
+import static utils.PageInitializer.loginPage;
+
 public class LoginSteps extends CommonMethods {
-    private WebDriver driver;
-    private LoginPage loginPage;
 
-    @Given("I am on the login page")
-    public void i_am_on_the_login_page() {
-        driver = openBrowserAndNavigateToURL(ConfigReader.getProperty("url"));
-        loginPage = new LoginPage(driver);
+    @Given("user is able to access HRMS application")
+    public void user_is_able_to_access_hrms_application() {
+        driver = new ChromeDriver();
+        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
     }
 
-    @When("I enter the username {string}")
-    public void i_enter_the_username(String username) {
-        loginPage.enterUsername(username);
+    @Then("user is navigated to dashboard page")
+    public void user_is_navigated_to_dashboard_page() {
+
+
+    }
+    @When("user enters admin username and admin password")
+    public void user_enters_admin_username_and_admin_password() {
+        sendText(ConfigReader.read("userName"),loginPage.usernameField);
+        sendText(ConfigReader.read("password"),loginPage.passwordField);
+
+    }
+    @When("user clicks on login button")
+    public void user_clicks_on_login_button() {
+        click(loginPage.loginButton);
+    }
+    @Then("user is navigated to dashboard page or landing page")
+    public void user_is_navigated_to_dashboard_page_or_landing_page() {
+
+        Assert.assertTrue(dashboardPage.welcomeText.isDisplayed());
+        System.out.println("test passed");
     }
 
-    @And("I enter the password {string}")
-    public void i_enter_the_password(String password) {
-        loginPage.enterPassword(password);
+    @When("user enters invalid username and password")
+    public void user_enters_invalid_username_and_password() {
+        //  WebElement usernameField = driver.findElement(By.id("txtUsername"));
+        //loginPage.sendKeys("admin");
+        sendText("admin", loginPage.usernameField);
+        //  WebElement passwordField = driver.findElement(By.id("txtPassword"));
+        // passwordField.sendKeys("Hum@nhrm12234563");
+        sendText("Hum@h", loginPage.passwordField);
     }
-
-    @And("I click the login button")
-    public void i_click_the_login_button() {
-        loginPage.clickLoginButton();
-    }
-
-    @Then("I should see the dashboard page")
-    public void i_should_see_the_dashboard_page() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement dashboardHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#dashboard-header")));
-        Assert.assertTrue(dashboardHeader.isDisplayed());
-    }
-
-    @But("I should see an error message {string}")
-    public void i_should_see_an_error_message(String errorMessage) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement errorMessageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".message.error")));
-        Assert.assertTrue(errorMessageElement.getText().contains(errorMessage));
+    @Then("user can see error message")
+    public void user_can_see_error_message() {
+        String actualMessage = loginPage.errorMessage.getText();
+        Assert.assertEquals("Invalid cred", actualMessage);
+        //  System.out.println("Steps will be implemented later");
     }
 }

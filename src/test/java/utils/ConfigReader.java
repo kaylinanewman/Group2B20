@@ -4,19 +4,30 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigReader {
-    private static Properties properties;
+import static utils.CommonMethods.driver;
 
-    public ConfigReader() {
-        try (FileInputStream input = new FileInputStream("src/test/resources/config/config.properties")) {
-            properties = new Properties();
-            properties.load(input);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+public class ConfigReader {
+
+    public static String read(String key) {
+        return read(key, Constants.CONFIG_FILE_PATH);
     }
 
-    public static String getProperty(String key) {
-        return properties.getProperty(key);
+    public static String read(String key, String path) {
+
+                Properties properties = new Properties();
+                try (FileInputStream fis = new FileInputStream(path)) {
+                    properties.load(fis);
+                } catch (IOException ioException) {
+
+                    ioException.printStackTrace();
+                }
+                return properties.getProperty(key);
+            }
+
+    public static String getProperty(String url) {
+        return getProperty(url);
     }
 }
+
+
+

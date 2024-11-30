@@ -10,28 +10,31 @@ public class LoginPage extends CommonMethods {
     private WebDriver driver;
 
     @FindBy(css = "#txtUsername")
-    private WebElement usernameField;
+    public WebElement usernameField;
 
     @FindBy(css = "#txtPassword")
-    private WebElement passwordField;
+    public WebElement passwordField;
 
     @FindBy(css = "#btnLogin")
-    private WebElement loginButton;
+    public WebElement loginButton;
 
-    public LoginPage(WebDriver driver) {
+    @FindBy(id = "spanMessage")
+    public WebElement errorMessage;
+
+    public LoginPage() {
         PageFactory.initElements((org.openqa.selenium.SearchContext) null, this);
     }
 
-    public void enterUsername(String username) {
-        sendText(usernameField, username);
+   public void enterUsername(String username) {
+       sendText(username,usernameField);
     }
 
     public void enterPassword(String password) {
-        sendText(passwordField, password);
+       sendText(password, passwordField);
     }
 
     public DashboardPage clickLoginButton() {
         loginButton.click();
-        return new DashboardPage(driver);
+        return new DashboardPage();
     }
 }
