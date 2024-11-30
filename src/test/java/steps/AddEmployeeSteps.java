@@ -28,7 +28,7 @@ public class AddEmployeeSteps extends CommonMethods {
         expectedMN=mn;
         expectedLN=ln;
         // gets the id of employee from add employee page
-        employeeId  = addEmployeePage.employeeIDField.getAttribute("value");
+        employeeId  = employeeSearchPage.empIdTextBox.getAttribute("value");
 
     }
 
