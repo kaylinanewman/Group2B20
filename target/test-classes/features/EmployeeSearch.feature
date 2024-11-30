@@ -1,3 +1,4 @@
+
 Feature: Employee Search Functionality
 
   Background:
@@ -32,3 +33,4 @@ Feature: Employee Search Functionality
     And user enters invalid employee name
     When user clicks on search button
     Then user should see the message "No Records Found"
+

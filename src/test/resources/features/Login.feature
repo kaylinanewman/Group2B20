@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 Feature: Login scenarios
 
 
@@ -24,4 +23,4 @@ Feature: Login scenarios
     And user clicks on login button
     Then user is navigated to dashboard page or landing page
 
->>>>>>> Moqaddas
+

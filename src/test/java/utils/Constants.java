@@ -1,6 +1,7 @@
-<<<<<<< HEAD
-=======
+
 package utils;
+
+import java.util.ArrayList;
 
 public class Constants {
     public static final String CONFIG_FILE_PATH= System.getProperty("user.dir")+"/src/test/resources/config/config.properties";
@@ -19,6 +20,10 @@ public class Constants {
     public static final String ERROR_MESSAGE = "//div[@class='message warning fadable']\n";
     public static final String PROFILE_PICTURE = "//*[@id=\"empPic\"]";
     public static final String BASE_PATH = "src/test/resources/images/";
+
+
+    public static ArrayList<String> allNames=new ArrayList<>();
+    public static String  allDependentsNameXPath="//table/tbody/tr/td[2]";
 }
 
->>>>>>> Moqaddas
+

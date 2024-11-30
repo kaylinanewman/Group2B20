@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package steps;
 
 
@@ -283,4 +282,4 @@ public class CreateLoginSteps extends CommonMethods {
 
 }
 
->>>>>>> Moqaddas
+

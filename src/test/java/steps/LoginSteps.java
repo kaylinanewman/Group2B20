@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 package steps;
 
 import io.cucumber.java.en.Given;
@@ -36,17 +34,24 @@ public class LoginSteps extends CommonMethods {
     @Then("user is navigated to dashboard page")
     public void user_is_navigated_to_dashboard_page() {
     }
+
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
         click(loginPage.loginButton);
     }
+
     @Then("user is navigated to dashboard page or landing page")
     public void user_is_navigated_to_dashboard_page_or_landing_page() {
 
         Assert.assertTrue(dashboardPage.welcomeText.isDisplayed());
         System.out.println("test passed");
     }
-
+    @Then("user clicks on Employee List")
+    public void user_clicks_on_employee_list() {
+        //WebElement employeeListOption= driver.findElement(By.id("menu_pim_viewEmployeeList"));
+        //employeeListOption.click();
+        click(loginPage.employeeListOption);
+    }
     @When("user enters invalid username and password")
     public void user_enters_invalid_username_and_password() {
         //  WebElement usernameField = driver.findElement(By.id("txtUsername"));
@@ -56,6 +61,7 @@ public class LoginSteps extends CommonMethods {
         // passwordField.sendKeys("Hum@nhrm12234563");
         sendText("Hum@h", loginPage.passwordField);
     }
+
     @Then("user can see error message")
     public void user_can_see_error_message() {
         String actualMessage = loginPage.errorMessage.getText();
@@ -63,4 +69,4 @@ public class LoginSteps extends CommonMethods {
         //  System.out.println("Steps will be implemented later");
     }
 }
->>>>>>> Moqaddas
+

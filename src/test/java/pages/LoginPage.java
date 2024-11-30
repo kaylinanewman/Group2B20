@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package pages;
 
 import org.openqa.selenium.WebDriver;
@@ -19,9 +18,14 @@ public class LoginPage extends CommonMethods {
     @FindBy(id="btnLogin")
     public WebElement loginButton;
 
-
     @FindBy(id = "spanMessage")
     public WebElement errorMessage;
+//------------------
+
+    @FindBy(id="menu_pim_viewEmployeeList")
+    public WebElement employeeListOption;
+
+
 
 
   public void enterUsername(String username) {
@@ -38,5 +42,6 @@ public class LoginPage extends CommonMethods {
         loginButton.click();
       return new DashboardPage();
    }
+
+
 }
->>>>>>> Moqaddas

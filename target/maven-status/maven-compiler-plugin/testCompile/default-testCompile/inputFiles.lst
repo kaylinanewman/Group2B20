@@ -1,6 +1,5 @@
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\steps\EditContactDetailsSteps.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\pages\LoginPage.java
-C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\pages\CreateLoginPage.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\APIPayload.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\pages\EmployeeSearchPage.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\pages\ContactDetailsPage.java
@@ -9,7 +8,6 @@ C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\APISteps\AP
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\steps\APIAuthenticationSteps.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\APICommonMethods.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\APIPayloadConstants.java
-C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\ExcelReader.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\runners\ApiRunnerTest.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\steps\CreateLoginSteps.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\APIConstants.java
@@ -19,6 +17,8 @@ C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\Confi
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\DBReader.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\pages\DashboardPage.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\PageInitializer.java
+C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\steps\AddDependentSteps.java
+C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\pages\AddDependentPage.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\utils\ScreenShots.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\pages\AddEmployeePage.java
 C:\Users\kayli\OneDrive\Desktop\GroupProject\Group2B20\src\test\java\steps\LoginSteps.java

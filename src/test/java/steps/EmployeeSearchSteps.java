@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 package steps;
 
 import io.cucumber.java.en.Then;
@@ -139,4 +137,4 @@ public class EmployeeSearchSteps extends CommonMethods {
         click(contactDetailsPage.idField);
     }
 }
->>>>>>> Moqaddas
+

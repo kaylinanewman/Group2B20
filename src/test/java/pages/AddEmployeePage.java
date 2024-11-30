@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 package pages;
 
 
@@ -35,5 +33,5 @@ public class AddEmployeePage extends CommonMethods {
         PageFactory.initElements(driver, this);
     }
 }
->>>>>>> Moqaddas
+
 

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 
 Feature: Employee updates his contact information
 
@@ -27,4 +25,4 @@ Background:
       |2630 Ocean Ave|Apt A4        |Brooklyn|New York   |11229  |United States|123-456-7890|987-654-3210|456-789-0123|nick1@gmail.com|nick2@aol.com|
 
 
->>>>>>> Moqaddas
+

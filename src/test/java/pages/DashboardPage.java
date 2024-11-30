@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package pages;
 
 
@@ -30,8 +29,11 @@ public class DashboardPage extends CommonMethods {
     @FindBy(id = "menu_admin_viewAdminModule")
     public WebElement adminOption;
 
+    @FindBy(id="menu_pim_viewPimModule")
+    public WebElement pimOption;
+
     public DashboardPage(){
         PageFactory.initElements(driver, this);
     }
 }
->>>>>>> Moqaddas
+

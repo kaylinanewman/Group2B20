@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package pages;
 
 import org.openqa.selenium.WebElement;
@@ -60,4 +59,4 @@ public class ContactDetailsPage extends CommonMethods {
 
 
 }
->>>>>>> Moqaddas
+

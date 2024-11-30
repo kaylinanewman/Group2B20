@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package utils;
 
 import org.apache.commons.io.FileUtils;
@@ -173,4 +172,3 @@ public class CommonMethods extends PageInitializer {
 
 
 
->>>>>>> Moqaddas
