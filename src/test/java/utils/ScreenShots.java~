@@ -1,0 +1,48 @@
+package utils;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class ScreenShots extends CommonMethods {
+
+        /**
+         * Takes a screenshot and saves it to the specified location.
+         *
+         * @param driver The WebDriver instance.
+         * @param screenshotName The name for the screenshot file.
+         */
+        public static void takeScreenshot(WebDriver driver, String screenshotName) {
+            // Generate a timestamp for unique screenshot file names
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+            // Capture the screenshot and store it as a file
+            File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            try {
+                // Define the destination file path
+                String destFilePath = "screenshots/" + screenshotName + "_" + timestamp + ".png";
+                File destFile = new File(destFilePath);
+                // Copy the screenshot to the destination path
+                FileHandler.copy(srcFile, destFile);
+                System.out.println("Screenshot taken: " + destFilePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Failed to take screenshot: " + e.getMessage());
+            }
+        }
+
+        /**
+         * Takes a screenshot without specifying a name. Uses a default name.
+         *
+         * @param driver The WebDriver instance.
+         */
+        public static void takeScreenshot(WebDriver driver) {
+            takeScreenshot(driver, "screenshot");
+        }
+    }
+    
