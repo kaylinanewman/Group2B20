@@ -1,22 +1,26 @@
-As an employee,
+11/30
+Done-Cases merged and in working condition
+Kaylin - 2  Admin Login & Language Proficiency Details
+Sidra - 1  Create login details
+Moqaddas - 2 ESS User profile pic & API Token Generation
+Josely - 1 Create employee record
+Irina - 1 Employee search
+Oksana - 1 Edit contact details
 
-I want to be able to add my language proficiency details to my HRMS profile,
+In-Progress
+Josely - 1 Adding Dependents to HRMS
+Tesneem - 1 Add current job details
+Fahad - 1 Retrieve Employee Record
+Elsayed -2 Delete Employee Record & add membership details
+Elena - 1 Add Employee to HRMS
 
-So that my profile accurately reflects my language skills.
+To do
+Fahad - 1 ESS user change personal details
+Elena - 1 User Creation
 
- 
 
-*Acceptance Criteria*
 
- 
- # The employee can access their profile and navigate to the language proficiency section.
 
- * The following fields should be displayed and editable for the employee:
- * Language: a dropdown field where the employee can select the language they are proficient in.
- * Fluency: a dropdown field where the employee can select their level of fluency in the language (Basic, Intermediate, Advanced, Fluent).
- * Competency: a dropdown field where the employee can select their competency level in the language (Speaking, Reading, Writing).
- * Comments: a text box where the employee can enter additional comments or details about their language proficiency.
- * The system should validate that mandatory fields (Language, Fluency, Competency) are filled in before allowing the employee to save their language proficiency details.
- * After the employee saves their language proficiency details, the system should store the language proficiency details in the employee's profile.
 
- # The employee should be able to edit or delete their previously saved language proficiency details.mployee should be able to edit or delete their previously saved language proficiency details.
+
+

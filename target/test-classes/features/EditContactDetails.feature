@@ -22,6 +22,6 @@ Background:
         Then the contact information should be updated successfully
      Examples:
       |addressStreet1|addressStreet2|city    |state      |zipCode|country      |homePhone   |mobilePhone |workPhone   |workEmail     |otherEmail  |
-      |2630 Ocean Ave|Apt A4        |Brooklyn|New York   |11229  |United States|123-456-7890|987-654-3210|456-789-0123|nick@gmail.com|nick@aol.com|
+      |2630 Ocean Ave|Apt A4        |Brooklyn|New York   |11229  |United States|123-456-7890|987-654-3210|456-789-0123|nick1@gmail.com|nick2@aol.com|
 
 
