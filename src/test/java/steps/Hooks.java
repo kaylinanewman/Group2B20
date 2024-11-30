@@ -10,31 +10,25 @@ public class Hooks extends CommonMethods {
 
     @Before
     public void start() {
-        if (driver == null) {
-            driver = openBrowserAndNavigateToURL(ConfigReader.getProperty("url"));
-            System.out.println("🌟✨ Starting the browser... Brace yourself, adventure awaits! 🕵️‍♂️✨🌟");
-        }
+        openBrowserAndLaunchApplication();
+        // driver = new ChromeDriver();
+        // driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
+        // driver.manage().window().maximize();
+        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
     @After
-        public void end (Scenario scenario) {
-            if (driver != null) {
-                closeBrowser();
-                driver = null;
-                System.out.println("🚀💥🛸 Closing the browser... Hope it had a smooth ride! 🛸💥🚀");
-            }
-
-        /*byte[] pic;
-        if(scenario.isFailed()){
-            pic = takeScreenshot("failed/"+scenario.getName());
-        }else{
-            pic = takeScreenshot("passed/"+scenario.getName());
+    public void end(Scenario scenario) {
+        //scenario class in cucumber has complete information about the execution
+        // driver.quit();
+        byte[] pic;
+        if (scenario.isFailed()) {
+            pic = takeScreenshot("failed/" + scenario.getName());
+        } else {
+            pic = takeScreenshot("passed/" + scenario.getName());
         }
-        scenario.attach(pic,"image/png",scenario.getName());
+        scenario.attach(pic, "image/png", scenario.getName());
         closeBrowser();
-
-         */
     }
-
 }
-
 

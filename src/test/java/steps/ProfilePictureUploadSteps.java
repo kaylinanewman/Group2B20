@@ -20,9 +20,9 @@ public class ProfilePictureUploadSteps extends CommonMethods {
     @Given("I am logged into the HRMS application as an ESS user,")
     public void i_am_logged_into_the_hrms_application_as_an_ess_user() {
         PageInitializer.initializePageObjects();
-        driver = openBrowserAndNavigateToURL(ConfigReader.getProperty("url"));
-        sendText(driver.findElement(By.id(Constants.USERNAME_FIELD)), ConfigReader.getProperty("userName"));
-        sendText(driver.findElement(By.id(Constants.PASSWORD_FIELD)), ConfigReader.getProperty("password"));
+        openBrowserAndLaunchApplication();
+        sendText(ConfigReader.read("MuserName"), driver.findElement(By.id(Constants.USERNAME_FIELD)));
+        sendText(ConfigReader.read("Mpassword"), driver.findElement(By.id(Constants.PASSWORD_FIELD)));
         driver.findElement(By.id(Constants.LOGIN_BUTTON)).click();
     }
 

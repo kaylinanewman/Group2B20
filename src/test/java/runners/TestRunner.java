@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "steps",
         dryRun = false,
-        tags = "@ESSFailure",
+        tags = "@namesearch",
         plugin = {"pretty", "html:target/cucumber-reports.html"}
 
         //plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json",

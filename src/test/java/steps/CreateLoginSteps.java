@@ -271,5 +271,13 @@ public class CreateLoginSteps extends CommonMethods {
         WebElement username = driver.findElement(By.cssSelector("input[id='user_name']"));
         username.sendKeys(usernameValue);
     }
+
+    @When("user clicks on add employee option")
+    public void user_clicks_on_add_employee_option() {
+        WebElement addEmployeeOption = driver.findElement(By.id("menu_pim_addEmployee"));
+        // addEmployeeOption.click();
+        click(addEmployeeOption);
+    }
+
 }
 

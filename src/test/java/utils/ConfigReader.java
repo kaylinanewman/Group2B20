@@ -24,9 +24,7 @@ public class ConfigReader {
                 return properties.getProperty(key);
             }
 
-    public static String getProperty(String url) {
-        return getProperty(url);
-    }
+
 }
 
 

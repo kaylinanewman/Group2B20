@@ -23,18 +23,6 @@ public class CommonMethods extends PageInitializer {
 
     public static WebDriver driver;
 
-    public static WebDriver openBrowserAndNavigateToURL(String url) {
-        if (driver == null) {
-
-            System.setProperty("webdriver.chrome.driver", configReader.getProperty("chrome.driver.path"));
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        }
-        driver.get(url);
-        return driver;
-    }
-
     public void openBrowserAndLaunchApplication() {
 
         switch (ConfigReader.read("browser")){
@@ -69,7 +57,7 @@ public class CommonMethods extends PageInitializer {
         }
     }
 
-    public void sendText(String text, WebElement element) {
+    public void sendText(String text, WebElement element){
         element.clear();
         element.sendKeys(text);
     }
@@ -80,8 +68,7 @@ public class CommonMethods extends PageInitializer {
     }
 
     public WebDriverWait getwait() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT));
-        return wait;
+        return new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT));
     }
 
     public void waitForElementToBeClickAble(WebElement element) {

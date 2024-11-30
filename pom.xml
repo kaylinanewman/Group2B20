@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>22</maven.compiler.source>
-        <maven.compiler.target>22</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -36,21 +36,6 @@
             <artifactId>cucumber-junit</artifactId>
             <version>7.14.0</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>7.14.0</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>7.14.0</version>
-
         </dependency>
 
         <dependency>
@@ -134,15 +119,13 @@
                         </goals>
                         <configuration>
                             <projectName>CucumberBatch20</projectName>
-                            <!-- optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified -->
-
-                            <!-- output directory for the generated report -->
+                            <!-- optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely,output directory for the generated report -->
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <!-- optional, defaults to outputDirectory if not specified -->
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
                                 <!-- supports wildcard or name pattern -->
-                                <param>**/*.json</param>
+                                <param>*/.json</param>
                             </jsonFiles>
                             <!-- optional, defaults to outputDirectory if not specified -->
                         </configuration>

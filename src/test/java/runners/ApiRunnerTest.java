@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "APISteps",
         dryRun = false,
-        tags = "@API_Authentication",
+        tags = "@dynamic",
         plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json",
                 "rerun:target/failed.txt"}
 )

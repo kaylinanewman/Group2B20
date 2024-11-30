@@ -25,16 +25,14 @@ public class LoginSteps extends CommonMethods {
 
     }
 
-    @Then("user is navigated to dashboard page")
-    public void user_is_navigated_to_dashboard_page() {
-
-
-    }
     @When("user enters admin username and admin password")
     public void user_enters_admin_username_and_admin_password() {
-        sendText(ConfigReader.read("userName"),loginPage.usernameField);
-        sendText(ConfigReader.read("password"),loginPage.passwordField);
+        sendText(ConfigReader.read("userName"), loginPage.usernameField);
+        sendText(ConfigReader.read("password"), loginPage.passwordField);
+    }
 
+    @Then("user is navigated to dashboard page")
+    public void user_is_navigated_to_dashboard_page() {
     }
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
@@ -59,7 +57,7 @@ public class LoginSteps extends CommonMethods {
     @Then("user can see error message")
     public void user_can_see_error_message() {
         String actualMessage = loginPage.errorMessage.getText();
-        Assert.assertEquals("Invalid cred", actualMessage);
+        Assert.assertEquals("Invalid credentials", actualMessage);
         //  System.out.println("Steps will be implemented later");
     }
 }

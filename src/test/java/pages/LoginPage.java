@@ -7,34 +7,33 @@ import org.openqa.selenium.support.PageFactory;
 import utils.CommonMethods;
 
 public class LoginPage extends CommonMethods {
-    private WebDriver driver;
 
-    @FindBy(css = "#txtUsername")
+    @FindBy(id="txtUsername")
     public WebElement usernameField;
 
-    @FindBy(css = "#txtPassword")
+    @FindBy(id="txtPassword")
     public WebElement passwordField;
 
-    @FindBy(css = "#btnLogin")
+    @FindBy(id="btnLogin")
     public WebElement loginButton;
+
 
     @FindBy(id = "spanMessage")
     public WebElement errorMessage;
 
-    public LoginPage() {
-        PageFactory.initElements((org.openqa.selenium.SearchContext) null, this);
+
+  public void enterUsername(String username) {
+      sendText(username,usernameField);
+   }
+
+   public void enterPassword(String password) {
+      sendText(password, passwordField);
+   }
+    public LoginPage(){PageFactory.initElements(driver, this);
     }
 
-   public void enterUsername(String username) {
-       sendText(username,usernameField);
-    }
-
-    public void enterPassword(String password) {
-       sendText(password, passwordField);
-    }
-
-    public DashboardPage clickLoginButton() {
+   public DashboardPage clickLoginButton() {
         loginButton.click();
-        return new DashboardPage();
-    }
+      return new DashboardPage();
+   }
 }

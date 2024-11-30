@@ -5,19 +5,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.CommonMethods;
 
-    public class EmployeeSearchPage extends CommonMethods {
+public class EmployeeSearchPage extends CommonMethods {
+    @FindBy(id="empsearch_id")
+    public WebElement empIdTextBox;
 
-        @FindBy(id="empsearch_id")
-        public WebElement empIdTextBox;
+    @FindBy(xpath="//input[@id='searchBtn']")
+    public WebElement searchButton;
 
-        @FindBy(id="searchBtn")
-        public WebElement searchButton;
+    @FindBy(id="empsearch_employee_name_empName")
+    public WebElement empSearchNameField;
 
-        @FindBy(id="empsearch_employee_name_empName")
-        public WebElement empSearchNameField;
-
-        public EmployeeSearchPage(){
-            PageFactory.initElements(driver, this);
-        }
+    public EmployeeSearchPage(){
+        PageFactory.initElements(driver, this);
     }
 
+}

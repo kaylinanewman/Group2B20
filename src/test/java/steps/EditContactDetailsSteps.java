@@ -23,11 +23,6 @@ import java.time.Duration;
 
 public class EditContactDetailsSteps extends CommonMethods {
 
-    @When("user clicks on id field")
-    public void user_clicks_on_id_field() {
-     click(contactDetailsPage.idField);
-    }
-
 
     @Then("user clicks the Contact Details section")
     public void user_clicks_the_contact_details_section() {
@@ -91,8 +86,8 @@ public class EditContactDetailsSteps extends CommonMethods {
         String expectedHomeTelephone = "123-456-7890";
         String expectedMobilePhone = "987-654-3210";
         String expectedWorkTelephone = "456-789-0123";
-        String expectedWorkEmail = "nick@gmail.com";
-        String expectedOtherEmail = "nick@aol.com";
+        String expectedWorkEmail = "nick1@gmail.com";
+        String expectedOtherEmail = "nick2@aol.com";
 
         // Retrieve actual values directly from the WebElements
         String actualStreet1 = contactDetailsPage.contactStreet1Field.getAttribute("value");
