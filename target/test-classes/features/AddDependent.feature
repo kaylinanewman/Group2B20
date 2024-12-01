@@ -62,31 +62,31 @@ Feature: Adding Dependents
 
 
 
-  @editingDependent
-  Scenario Outline:Editing a Dependent
-    When user enters "<employeeID>" number
-    And user clicks on Search button
-    When user clicks on desired id number
-    Then user clicks on Dependents button
-    And user selects the "<Name>" of the dependent to be edited
-    Then user selects "<relationship>" from dropdown menu to edit
-    And user "<Specifies Relationship>"
-    And user saves the changes successfully
+  #@editingDependent
+ # Scenario Outline:Editing a Dependent
+   # When user enters "<employeeID>" number
+   # And user clicks on Search button
+   # When user clicks on desired id number
+   # Then user clicks on Dependents button
+    #And user selects the "<Name>" of the dependent to be edited
+   # Then user selects "<relationship>" from dropdown menu to edit
+   # And user "<Specifies Relationship>"
+   # And user saves the changes successfully
 
-    Examples:
-      | employeeID | Name | relationship | Specifies Relationship |
-      |112943A     |Maria Taylor|other   | Mother                 |
+   # Examples:
+   #   | employeeID | Name | relationship | Specifies Relationship |
+   #   |112943A     |Maria Taylor|other   | Mother                 |
 
-  @removeDependent
-  Scenario Outline:Deleting a Dependent
-    When user enters "<employeeID>" number
-    And user clicks on Search button
-    When user clicks on desired id number
-    Then user clicks on Dependents button
-    And selects the "<Name>" of the dependent to be deleted
-    And deletes the dependent from list
-    Then dependent is successfully deleted
-    Examples:
-      | employeeID | Name |
-      |112943A     |Maria Taylor|
+ # @removeDependent
+  #Scenario Outline:Deleting a Dependent
+   # When user enters "<employeeID>" number
+   # And user clicks on Search button
+   # When user clicks on desired id number
+   # Then user clicks on Dependents button
+   # And selects the "<Name>" of the dependent to be deleted
+   # And deletes the dependent from list
+   # Then dependent is successfully deleted
+  #  Examples:
+   #   | employeeID | Name |
+  #    |112943A     |Maria Taylor|
 

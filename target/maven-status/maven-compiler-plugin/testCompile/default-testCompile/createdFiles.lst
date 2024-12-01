@@ -14,7 +14,6 @@ utils\APIConstants.class
 pages\APIAuthenticationPage.class
 steps\APIAuthenticationSteps.class
 utils\APICommonMethods.class
-utils\DBReader.class
 steps\EditContactDetailsSteps.class
 utils\ScreenShots.class
 steps\Hooks.class
