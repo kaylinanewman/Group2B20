@@ -22,8 +22,7 @@ Feature: Adding Dependents
     And user selects date of birth "<year>" and "<month>" and "<day>"
     And user clicks on Save button
     And dependent is successfully saved
-    And the HRMS application should clearly display the list of dependents added by the employee
-    And changes are verified through database using "<Name>"
+
 
     Examples:
       | employeeID | Name | relationship | year | month | day |

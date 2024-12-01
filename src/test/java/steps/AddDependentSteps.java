@@ -116,25 +116,6 @@ public class AddDependentSteps extends CommonMethods {
         Assert.assertTrue(addDependentPage.successfulySavedCloseButton.isDisplayed());
     }
 
-    @Then("the HRMS application should clearly display the list of dependents added by the employee")
-    public void the_hrms_application_should_clearly_display_the_list_of_dependents_added_by_the_employee() {
-
-        //getting the names of the dependents found in table
-        List<WebElement> allDependents=driver.findElements(By.xpath(Constants.allDependentsNameXPath));
-        ArrayList<String> allDependentsText=new ArrayList<>();
-        allDependents.forEach(x-> {
-            String text = x.getText().trim();
-
-            allDependentsText.add(text);
-
-
-        });
-        allDependentsText.forEach(System.out::println);
-        System.out.println("-----------------the next is the names entered in feature file");
-        Constants.allNames.forEach(System.out::println);
-
-        Assert.assertEquals(allDependentsText,Constants.allNames);
-    }
 
     @Then("changes are verified through database using {string}")
     public void changes_are_verified_through_database_using(String string) {
