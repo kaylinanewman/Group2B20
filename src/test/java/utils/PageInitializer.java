@@ -11,6 +11,7 @@ public class PageInitializer {
     public static DashboardPage dashboardPage;
     public static ContactDetailsPage contactDetailsPage;
     public static AddDependentPage addDependentPage;
+    public static JobDetailsPage jobDetailsPage;
 
     public static void initializePageObjects() {
         loginPage = new LoginPage();
@@ -19,6 +20,7 @@ public class PageInitializer {
         dashboardPage = new DashboardPage();
         contactDetailsPage = new ContactDetailsPage();
         addDependentPage=new AddDependentPage();
+        jobDetailsPage = new JobDetailsPage();
     }
 
 

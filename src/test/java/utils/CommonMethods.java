@@ -168,6 +168,20 @@ public class CommonMethods extends PageInitializer {
             click(option);
         }
     }
+    public static void selectDropdownOption(WebElement dropdownElement, String visibleText) {
+        Select select = new Select(dropdownElement);
+        select.selectByVisibleText(visibleText);
+    }
+    public static void sendText(WebElement element, String text) {
+        element.clear();
+        element.sendKeys(text);
+    }
+
+    public static String getText(WebElement element) {
+        return element.getText().trim();
+    }
+
+
 }
 
 
