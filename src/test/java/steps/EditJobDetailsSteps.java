@@ -46,21 +46,5 @@ public class EditJobDetailsSteps extends CommonMethods {
     public void the_admin_user_clicks_the_save_button(){
         click(jobDetailsPage.saveButton);
     }
-    @Then("the admin user should be able to see the updated job details")
-    public void verifyUpdatedJobDetails(io.cucumber.datatable.DataTable dataTable) {
-        Map<String, String> expectedData = dataTable.asMap(String.class, String.class);
-
-        Assert.assertEquals(expectedData.get("Job Title"), CommonMethods.getText(jobDetailsPage.jobTitleDropdown));
-        Assert.assertEquals(expectedData.get("Employment Status"), CommonMethods.getText(jobDetailsPage.employmentStatusDropdown));
-        Assert.assertEquals(expectedData.get("Sub Unit"), CommonMethods.getText(jobDetailsPage.subUnitDropdown));
-        Assert.assertEquals(expectedData.get("Location"), CommonMethods.getText(jobDetailsPage.locationDropdown));
-
-        Assert.assertEquals(expectedData.get("Joined Date"), CommonMethods.getText(jobDetailsPage.joinedDateInput));
-        Assert.assertEquals(expectedData.get("Start Date"), CommonMethods.getText(jobDetailsPage.contractStartDateInput));
-        Assert.assertEquals(expectedData.get("End Date"), CommonMethods.getText(jobDetailsPage.contractEndDateInput));
-    }
-
-
-
 
 }

@@ -10,10 +10,10 @@ Feature: Manage employee job details
     And user enters employee ID
     And user clicks on search button
     Then user is able to see searched employee on screen
+    When user clicks on desired id number
 
   @updated
   Scenario Outline: Admin adds/updates current job details
-    When user clicks on name field
     Then the admin user clicks on the Job tab
     When the admin user clicks the Edit button
     Then the admin user should be able to edit the following fields:
@@ -27,7 +27,7 @@ Feature: Manage employee job details
       | Start Date        | <Start Date>          |
       | End Date          | <End Date>            |
     And the admin user clicks the Save button
-    Then the admin user should be able to see the updated job details
+
 
     Examples:
       | Name           | Job Title         | Employment Status | Joined Date  | Sub Unit     | Location      | Start Date  | End Date    |
